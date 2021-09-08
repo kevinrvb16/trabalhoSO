@@ -1,9 +1,6 @@
-from frame import Frame
-from page import Page
 import random
 import time
 from collections import defaultdict
-
 
 def NRU(referencedPages):
 
@@ -16,6 +13,7 @@ def NRU(referencedPages):
     randomPageToDelete = -1
     modifiedRange = [0,1]
     changeReferencedToZero = 0
+
     for referencedPage in referencedPages:
         if referencedPage not in dict:
             if (len(dict)==0 or len(dict) < maxLen):
@@ -46,12 +44,12 @@ def NRU(referencedPages):
                     print("entrou if class 3: " + str(classes[3]))
                     print(classes[3])
                     randomPageToDelete = (random.choice(classes[3]))
-                print(dict)
+                ##print(dict)  ##descomentar apenas para teste
                 dict.pop(str(randomPageToDelete))
                 print("Página que será excluída: " + str(randomPageToDelete))
                 print("Página adicionada: " + str(referencedPage))
                 print("---------------------------")
-                dict[referencedPage] = {'modified': 1, 'referenced': 1}
+                dict[referencedPage] = {'modified': random.choice(modifiedRange), 'referenced': 1}
                 countPageFaults += 1
         else:
             dict[referencedPage]['referenced'] = 1
@@ -62,12 +60,11 @@ def NRU(referencedPages):
         classes[3].clear()
 
         changeReferencedToZero += 1
-        if(changeReferencedToZero%13 == 0):
+        if(changeReferencedToZero%31 == 0):
             for page in dict:
                 dict[page].update(referenced = 0)
-            
-    print("quantidade de PageFaults: " + str(countPageFaults))
     print(dict)
+    print("quantidade de PageFaults: " + str(countPageFaults))
 
     finalTime = time.time()
     print("Tempo para executar nru em milissegundos" + (str(finalTime - initialTime)))

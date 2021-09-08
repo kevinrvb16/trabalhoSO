@@ -7,7 +7,7 @@ def  referencedPages():
     referencedPages =[]
     writeReferenceFile = open("./referencedpages.txt", "w")
 
-    for n in range(1000):
+    for n in range(100000):
         referencedPage = (random.randrange(firstPage, lastPage))
         referencedPages.append(referencedPage)
 
