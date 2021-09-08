@@ -8,6 +8,7 @@ def main():
     for line in readReferenceFile:
         referencedpages = line.split(', ')
     readReferenceFile.close()
+    
     Fifo(referencedpages)
     print("--------------------------------END FIFO--------------------------------")
     SecondChance(referencedpages)
