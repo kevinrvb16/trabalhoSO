@@ -22,6 +22,7 @@ def NRU(referencedPages):
                 dict[referencedPage] = {'referenced': 1, 'modified': random.choice(modifiedRange)}
                 print("Página adicionada: "+ str(referencedPage))
             elif(len(dict) == maxLen):
+                print("---------------------------")
                 print("PageFault!")
                 for allocatedPage in dict.keys():
                     if (dict[allocatedPage].get('referenced') == 0 and dict[allocatedPage].get('modified') == 0):
@@ -32,22 +33,24 @@ def NRU(referencedPages):
                         classes[2].append(int(allocatedPage))
                     elif (dict[allocatedPage].get('referenced') == 1 and dict[allocatedPage].get('modified') == 1):
                         classes[3].append(int(allocatedPage))
-                if(len(classes[0]) != 0):
-                    print("entrou if0")
+                if(len(classes[0]) > 0):
+                    print("entrou if class 0: " + str(classes[0]))
                     randomPageToDelete = (random.choice(classes[0]))
-                if(len(classes[1]) != 0):
-                    print("entrou if1")
+                elif(len(classes[1]) != 0):
+                    print("entrou if class 1: " + str(classes[1]))
                     randomPageToDelete = (random.choice(classes[1]))
-                if(len(classes[2]) != 0):
-                    print("entrou if2")
+                elif(len(classes[2]) != 0):
+                    print("entrou if class 2: " + str(classes[2]))
                     randomPageToDelete = (random.choice(classes[2]))
-                if(len(classes[3]) != 0):
-                    print("entrou if3")
+                elif(len(classes[3]) != 0):
+                    print("entrou if class 3: " + str(classes[3]))
                     print(classes[3])
                     randomPageToDelete = (random.choice(classes[3]))
                 print(dict)
                 dict.pop(str(randomPageToDelete))
-                print("Página que será excluída" + str(randomPageToDelete))
+                print("Página que será excluída: " + str(randomPageToDelete))
+                print("Página adicionada: " + str(referencedPage))
+                print("---------------------------")
                 dict[referencedPage] = {'modified': 1, 'referenced': 1}
                 countPageFaults += 1
         else:

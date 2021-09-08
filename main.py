@@ -9,10 +9,10 @@ def main():
         referencedpages = line.split(', ')
     readReferenceFile.close()
     Fifo(referencedpages)
-    print("--------------------------------end FIFO--------------------------------")
+    print("--------------------------------END FIFO--------------------------------")
     SecondChance(referencedpages)
-    print("--------------------------------end second chance--------------------------------")
+    print("--------------------------------END second chance--------------------------------")
     NRU(referencedpages)
-    print("--------------------------------end NRU--------------------------------")
+    print("--------------------------------END NRU--------------------------------")
 
 main()
