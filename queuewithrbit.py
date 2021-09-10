@@ -1,5 +1,3 @@
-from page import Page
-
 class QueueWithRBit:
 
     def __init__(self):

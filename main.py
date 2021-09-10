@@ -1,6 +1,7 @@
-from fifo import Fifo
 from secondchance import SecondChance
+from fifo import Fifo
 from nru import NRU
+from lru import LRU
 
 def main():
     readReferenceFile = open("./referencedpages.txt", "r")
@@ -10,10 +11,12 @@ def main():
     readReferenceFile.close()
     
     Fifo(referencedpages)
-    print("--------------------------------END FIFO--------------------------------")
+    print("--------------------------------END FIFO-------------------------------")
     SecondChance(referencedpages)
-    print("--------------------------------END second chance--------------------------------")
+    print("--------------------------------END SECOND CHANCE----------------------")
     NRU(referencedpages)
     print("--------------------------------END NRU--------------------------------")
+    LRU(referencedpages)
+    print("--------------------------------END LRU--------------------------------")
 
 main()

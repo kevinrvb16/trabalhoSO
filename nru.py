@@ -19,6 +19,7 @@ def NRU(referencedPages):
             if (len(dict)==0 or len(dict) < maxLen):
                 dict[referencedPage] = {'referenced': 1, 'modified': random.choice(modifiedRange)}
                 print("Página adicionada: "+ str(referencedPage))
+                countPageFaults += 1
             elif(len(dict) == maxLen):
                 print("---------------------------")
                 print("PageFault!")

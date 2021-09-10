@@ -10,6 +10,7 @@ def Fifo(referencedPages):
             if (q.isEmpty() or not q.isFullSize()):
                     q.enqueue(referencedPage)
                     print("Página adicionada: " + str(referencedPage))
+                    countPageFaults += 1
             elif(q.isFullSize()):
                 print("PageFault! Removendo  último da fila: " + str(q.dequeue()))
                 q.enqueue(referencedPage)
