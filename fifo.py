@@ -1,8 +1,8 @@
-from queue import Queue
+from fila import Fila
 
 def Fifo(referencedPages):
 
-    q = Queue()
+    q = Fila()
     countPageFaults = 0
 
     for referencedPage in referencedPages:

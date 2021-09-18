@@ -50,20 +50,21 @@ def NRU(referencedPages):
                 print("Página que será excluída: " + str(randomPageToDelete))
                 print("Página adicionada: " + str(referencedPage))
                 print("---------------------------")
-                dict[referencedPage] = {'modified': random.choice(modifiedRange), 'referenced': 1}
+                dict[referencedPage] = {'referenced': 1, 'modified': random.choice(modifiedRange)}
                 countPageFaults += 1
+                classes[0].clear()
+                classes[1].clear()
+                classes[2].clear()
+                classes[3].clear()
         else:
             dict[referencedPage]['referenced'] = 1
             print("Página já está no quadro: " + str(referencedPage))
-        classes[0].clear()
-        classes[1].clear()
-        classes[2].clear()
-        classes[3].clear()
-
+        
         changeReferencedToZero += 1
-        if(changeReferencedToZero%31 == 0):
+        if(changeReferencedToZero == 3 ):
             for page in dict:
                 dict[page].update(referenced = 0)
+            changeReferencedToZero = 0
     print(dict)
     print("quantidade de PageFaults: " + str(countPageFaults))
 

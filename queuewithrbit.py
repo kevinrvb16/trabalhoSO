@@ -60,7 +60,7 @@ class QueueWithRBit:
         while(True):
             if self.getFirstIsReferenced() == True:
                 self.sendToEndOfQueue()
-            elif self.getFirstIsReferenced() == False:
+            else:
                 print("Página removida: " + str(self.dequeue()))
                 addPage = self.enqueue(referencedPage)
                 print("Página adicionada: " + str(addPage))

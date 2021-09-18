@@ -1,4 +1,4 @@
-class Queue:
+class Fila:
 
     def __init__(self):
         self.items = []

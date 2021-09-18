@@ -4,19 +4,19 @@ from nru import NRU
 from lru import LRU
 
 def main():
-    readReferenceFile = open("./referencedpages.txt", "r")
+    readReferenceFile = open("./referencedpagestest1.txt", "r")
     referencedpages = []
     for line in readReferenceFile:
         referencedpages = line.split(', ')
     readReferenceFile.close()
-    
+
     Fifo(referencedpages)
-    print("--------------------------------END FIFO-------------------------------")
+    print("-----------------------------END FIFO-------------------------------")
     SecondChance(referencedpages)
-    print("--------------------------------END SECOND CHANCE----------------------")
+    print("-----------------------------END SECONDCHANCE-------------------------------")
     NRU(referencedpages)
-    print("--------------------------------END NRU--------------------------------")
+    print("-----------------------------END NRU-------------------------------")
     LRU(referencedpages)
-    print("--------------------------------END LRU--------------------------------")
+    print("-----------------------------END LRU-------------------------------")
 
 main()

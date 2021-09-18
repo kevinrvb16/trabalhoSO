@@ -11,7 +11,7 @@ def SecondChance(referencedPages):
                 q.enqueue(referencedPage)
                 print("Página adicionada: "+ str(referencedPage))
                 countPageFaults += 1
-            elif(q.isFullSize()):
+            else:
                 print("PageFault!")
                 q.giveSecondChance(referencedPage)
                 countPageFaults += 1
