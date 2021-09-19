@@ -8,7 +8,7 @@ class LinkedList():
         self.pageFault = 0
 
     def __repr__(self):
-        return "Primeiro: " + str(self.head) + '. ' + "Ultimo: " + str(self.tail)
+        return str(self.head)
 
     def insertAtStart(self, new_node):
         if self.len() < self.maxLen():

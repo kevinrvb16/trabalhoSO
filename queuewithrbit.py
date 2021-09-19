@@ -47,7 +47,6 @@ class QueueWithRBit:
         self.dequeue()
         self.items.insert(0, lastItem)
         self.isReferencedList.insert(0, lastIsReferenced)
-        print("Enviado para o fim da fila: " + str(self.getItems()[0]) + ". Bit R: " + str(self.getIsReferencedList()[0]))
 
     def getIndexOfItem(self, item):
          return self.items.index(item)
@@ -61,8 +60,7 @@ class QueueWithRBit:
             if self.getFirstIsReferenced() == True:
                 self.sendToEndOfQueue()
             else:
-                print("Página removida: " + str(self.dequeue()))
-                addPage = self.enqueue(referencedPage)
-                print("Página adicionada: " + str(addPage))
+                self.dequeue()
+                self.enqueue(referencedPage)
                 return False
 

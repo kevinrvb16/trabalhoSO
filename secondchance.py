@@ -9,15 +9,11 @@ def SecondChance(referencedPages):
         if referencedPage not in q.getItems():
             if (q.isEmpty() or not q.isFullSize()):
                 q.enqueue(referencedPage)
-                print("Página adicionada: "+ str(referencedPage))
                 countPageFaults += 1
             else:
-                print("PageFault!")
                 q.giveSecondChance(referencedPage)
                 countPageFaults += 1
         else:
-            q.setIsReferenced(referencedPage, True)
-            print("Página já está na fila: " + str(referencedPage))
-            
+            q.setIsReferenced(referencedPage, True)   
+    print("Páginas na memória" + str(q.getItems()))
     print("Quantidade de PageFaults: " + str(countPageFaults))
-    print(q.getItems())
