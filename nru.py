@@ -35,7 +35,6 @@ def NRU(referencedPages):
                 elif(len(classes[3]) != 0):
                     print(classes[3])
                     randomPageToDelete = (random.choice(classes[3]))
-                ##print(dict)  ##descomentar apenas para teste
                 dict.pop(str(randomPageToDelete))
                 dict[referencedPage] = {'referenced': 1, 'modified': random.choice(modifiedRange)}
                 countPageFaults += 1
@@ -50,5 +49,5 @@ def NRU(referencedPages):
             for page in dict:
                 dict[page].update(referenced = 0)
             changeReferencedToZero = 0
-    print("Páginas na memória" + str(dict))
+    print("Páginas na memória: " + str(dict.keys()).replace('dict_keys(', '').replace(')', ''))
     print("quantidade de PageFaults: " + str(countPageFaults))

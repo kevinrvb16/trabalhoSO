@@ -15,5 +15,5 @@ def SecondChance(referencedPages):
                 countPageFaults += 1
         else:
             q.setIsReferenced(referencedPage, True)   
-    print("Páginas na memória" + str(q.getItems()))
+    print("Páginas na memória: " + str(q.getItems()))
     print("Quantidade de PageFaults: " + str(countPageFaults))

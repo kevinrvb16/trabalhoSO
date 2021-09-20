@@ -14,5 +14,5 @@ def Fifo(referencedPages):
                 q.dequeue()
                 q.enqueue(referencedPage)
                 countPageFaults += 1
-    print("Páginas na memória" + str(q.getItems()))
+    print("Páginas na memória: " + str(q.getItems()))
     print("Quantidade de PageFaults: " + str(countPageFaults))

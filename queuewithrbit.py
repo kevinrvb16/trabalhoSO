@@ -40,6 +40,10 @@ class QueueWithRBit:
     def setFirstIsReferenced(self, isReferenced ):
         self.isReferencedList[self.size()-1] = isReferenced
 
+    def setIsReferenced(self, item, isReferenced):
+        indexOfItem = self.getIndexOfItem(item)
+        self.isReferencedList[indexOfItem] = isReferenced
+
     def sendToEndOfQueue(self):
         lastItem = self.getFirstItem()
         self.setFirstIsReferenced(False)
@@ -51,10 +55,6 @@ class QueueWithRBit:
     def getIndexOfItem(self, item):
          return self.items.index(item)
 
-    def setIsReferenced(self, item, isReferenced):
-        indexOfItem = self.getIndexOfItem(item)
-        self.isReferencedList[indexOfItem] = isReferenced
-
     def giveSecondChance(self, referencedPage):
         while(True):
             if self.getFirstIsReferenced() == True:
@@ -63,4 +63,3 @@ class QueueWithRBit:
                 self.dequeue()
                 self.enqueue(referencedPage)
                 return False
-
